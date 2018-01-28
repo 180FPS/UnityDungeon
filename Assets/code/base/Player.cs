@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Sets the player movement using a GamePad.    
     /// </summary>
-    private void ControllerMovement()
+    protected void ControllerMovement()
     {
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         var z = Input.GetAxis("Vertical") * Time.deltaTime * speed;

@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Defines an implementation of the Weapon class for a sword.
+/// <seealso cref="Weapon"/>
+/// </summary>
 public class Sword : Weapon
 {
     protected override void IdleWeapon()
     {
         transform.Rotate(0, 0, -45);       
-        RenderUtils.colorizeBlue(GetComponent<Renderer>());
+        RenderUtils.ColorizeBlue(GetComponent<Renderer>());
     }
 
     protected override void PerformAttack()
     {
         transform.Rotate(0, 0, 45);       
-        RenderUtils.colorizeYellow(GetComponent<Renderer>());
+        RenderUtils.ColorizeYellow(GetComponent<Renderer>());
     }
 }

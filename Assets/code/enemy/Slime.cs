@@ -1,20 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Defines a slow movement low-damaging enemy with near to non existant IA and poor void detection.
+/// <see cref="Enemy"/>
+/// </summary>
 public class Slime : Enemy {
     protected override void ReceiveDamage()
     {      
-        RenderUtils.colorizeRed(GetComponent<Renderer>());
+        RenderUtils.ColorizeRed(GetComponent<Renderer>());
     }
 
     protected override void RecoverFromDamage()
     {
-        RenderUtils.colorizeGreen(GetComponent<Renderer>());
+        RenderUtils.ColorizeGreen(GetComponent<Renderer>());
     }
 
     void Start () {       
-        RenderUtils.colorizeGreen(GetComponent<Renderer>());
+        RenderUtils.ColorizeGreen(GetComponent<Renderer>());
 	}
 
     private void FixedUpdate()

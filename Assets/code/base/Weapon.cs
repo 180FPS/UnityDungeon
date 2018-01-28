@@ -14,7 +14,7 @@ public abstract class Weapon : MonoBehaviour
     private void Start()
     {
         wait = cooldown;
-        RenderUtils.colorizeBlue(GetComponent<Renderer>());
+        RenderUtils.ColorizeBlue(GetComponent<Renderer>());
     }
 
     private void Update()
