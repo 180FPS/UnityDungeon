@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour {
+    public int speed;
     public int health;
     private int wait;
     protected int cooldown = 10;
@@ -26,8 +27,7 @@ public abstract class Enemy : MonoBehaviour {
 
     private void Update()
     {
-        ResetDamage();
-        
+        ResetDamage();        
     }
 
     private void ResetDamage()
@@ -36,9 +36,9 @@ public abstract class Enemy : MonoBehaviour {
             wait -= 1;
         if (wait <= 0)
         {
-            wait = cooldown;
-            canGetDamage = true;
             RecoverFromDamage();
+            wait = cooldown;
+            canGetDamage = true;            
             Die();
         }
     }

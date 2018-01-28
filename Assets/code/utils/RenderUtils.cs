@@ -37,4 +37,14 @@ public class RenderUtils : MonoBehaviour {
     {
         colorizeObject(unityEntity, 0.5f, 1, 0.5f);
     }
+
+    public static void colorizeYellow(Renderer unityEntity)
+    {
+        colorizeObject(unityEntity, 1, 1, 0);
+    }
+
+    public static void colorizeLightYellow(Renderer unityEntity)
+    {
+        colorizeObject(unityEntity, 1, 1, 0.5f);
+    }
 }

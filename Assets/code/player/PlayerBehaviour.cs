@@ -3,9 +3,4 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBehaviour : Player {
-    private Vector3 direction;
-    void Start()
-    {
-        RenderUtils.colorizeBlue(GetComponent<Renderer>());    
-    }
 }
