@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     {
         if (transform.position.y < -10)
         {
-            transform.position = new Vector3(-3.08f, -0.62f, -5.12f);
+            transform.position = new Vector3(0f, 0f, 0f);
         }
     }
 }

@@ -22,6 +22,7 @@ public abstract class Enemy : MonoBehaviour {
         if (health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(gameObject, new Vector3(Random.Range(-8, -1), -6, Random.Range(0, 7)), Quaternion.identity);
         }
     }
 
@@ -39,6 +40,14 @@ public abstract class Enemy : MonoBehaviour {
             RecoverFromDamage();
             wait = cooldown;
             canGetDamage = true;            
+            Die();
+        }
+    }
+
+    private void FallOff()
+    {
+        if (transform.position.y < -10)
+        {
             Die();
         }
     }
