@@ -3,7 +3,7 @@
 public class Player : MonoBehaviour
 {
     public float speed = 2.5f;
-    private bool canMove = true;
+    public bool canMove = true;
     public void SetMovement(bool canMove)
     {
         this.canMove = canMove;

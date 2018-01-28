@@ -6,6 +6,7 @@ public abstract class Weapon : MonoBehaviour
     public int damage = 0;
     private float wait;
     public float cooldown = 0;
+    public bool isAttacking = false;
     private bool canAttack = true;
     protected abstract void PerformAttack();
     protected abstract void IdleWeapon();
@@ -20,16 +21,20 @@ public abstract class Weapon : MonoBehaviour
     {
         if(canAttack && Input.GetButtonDown("Attack"))
         {
+            isAttacking = true;            
+            owner.canMove = false;
+            PerformAttack();
             canAttack = false;
-            PerformAttack();           
         }
         else if(!canAttack)
         {
             wait -= 1;
             if (wait <= 0)
             {                
-                wait = cooldown;                
-                canAttack = true;
+                wait = cooldown;
+                isAttacking = false;
+                owner.canMove = true;
+                canAttack = true;               
                 IdleWeapon();
             }
         }

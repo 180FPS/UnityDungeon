@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33374006355358920}
   - component: {fileID: 23840413918829564}
   - component: {fileID: 65821472143077068}
+  - component: {fileID: 114417602033074286}
   m_Layer: 0
   m_Name: sword
   m_TagString: Untagged
@@ -51,8 +52,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937672746425650}
   m_LocalRotation: {x: 0.6123728, y: 0.35355288, z: 0.3535532, w: 0.61237246}
-  m_LocalPosition: {x: -3.194, y: -0.707, z: -4.951}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: -240.00024, y: -167.99998, z: 340.00015}
+  m_LocalScale: {x: 200.00003, y: 200, z: 200}
   m_Children:
   - {fileID: 4310782901752992}
   m_Father: {fileID: 0}
@@ -64,13 +65,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636211628472216}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0, z: 0.01}
+  m_LocalRotation: {x: -0.00000071525574, y: 0.24395499, z: 0.000015825033, w: 0.96978664}
+  m_LocalPosition: {x: 0.4, y: -0.09, z: 1.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4303446123463552}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.001, y: -331.76, z: 0.002}
 --- !u!23 &23840413918829564
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -119,8 +120,22 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636211628472216}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.5, y: 3.3, z: 0.1}
   m_Center: {x: 0.0006308854, y: 0.69, z: 3.7489914e-11}
+--- !u!114 &114417602033074286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636211628472216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c733a26858635419a4c8b8eceefd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  damage: 10
+  cooldown: 3

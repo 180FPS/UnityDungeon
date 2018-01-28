@@ -4,29 +4,57 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour {
     public int health;
+    private int wait;
+    protected int cooldown = 10;
+    protected bool canGetDamage = true;
+
+    protected abstract void ReceiveDamage();
+    protected abstract void RecoverFromDamage();
+
+    private void Start()
+    {
+        wait = cooldown;
+    }
 
     void Die()
     {
-        if(health <= 0)
+        if (health <= 0)
         {
-            Destroy(this);
-        }       
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
     {
-        Die();
+        ResetDamage();
+        
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void ResetDamage()
     {
-        if(collision.gameObject.GetComponent<MonoBehaviour>() is Weapon)
+        if (!canGetDamage)
+            wait -= 1;
+        if (wait <= 0)
         {
-            Weapon wep = collision.gameObject.GetComponent<MonoBehaviour>() as Weapon;
-            health -= wep.getDamage();
-            receiveDamage();
+            wait = cooldown;
+            canGetDamage = true;
+            RecoverFromDamage();
+            Die();
         }
     }
 
-    protected abstract void receiveDamage();
+    private void OnTriggerStay(Collider other)
+    {
+        string tag = other.tag;
+        if (tag.Equals("weapon") && canGetDamage)
+        {
+            Weapon wep = other.gameObject.GetComponent<MonoBehaviour>() as Weapon;
+            if (wep.isAttacking)
+            {
+                canGetDamage = false;
+                health -= wep.getDamage();
+                ReceiveDamage();
+            }
+        }
+    }
 }
