@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using UnityEditor;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 3;
+    public float speed = 2.5f;
     private bool canMove = true;
     public void SetMovement(bool canMove)
     {
