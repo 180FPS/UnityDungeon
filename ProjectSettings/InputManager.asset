@@ -42,7 +42,7 @@ InputManager:
     descriptiveName: Performs an attack with the weapon
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 0
+    positiveButton: joystick button 2
     altNegativeButton: 
     altPositiveButton: left
     gravity: 1000

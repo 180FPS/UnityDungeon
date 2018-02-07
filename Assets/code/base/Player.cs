@@ -2,7 +2,7 @@
 
 public class Player : MonoBehaviour
 {
-    public float speed = 2.5f;
+    public float speed = 2f;
     public bool canMove = true;
     public void SetMovement(bool canMove)
     {
@@ -16,8 +16,16 @@ public class Player : MonoBehaviour
     {
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         var z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
-        transform.Translate(0, 0, z);
-        transform.Rotate(0, x * 150, 0);
+
+        Vector3 moveDirection = new Vector3(x, 0, +z);
+        transform.position += moveDirection * speed * Time.deltaTime;
+        
+        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            Vector3 moveAngle = new Vector3(0, 45, +0);
+            float angle = Mathf.Atan2(x, z) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
+        }
     }
 
     private void Update()
