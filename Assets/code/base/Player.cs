@@ -14,17 +14,20 @@ public class Player : MonoBehaviour
     /// </summary>
     protected void ControllerMovement()
     {
+        // Retrieve the current values for the left axis.
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         var z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
 
+        // Move the player in the angle of the two axis.
         Vector3 moveDirection = new Vector3(x, 0, +z);
         transform.position += moveDirection * speed * Time.deltaTime;
         
-        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        // Rotate the player to the axis angle.
+        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) // Prevent the player rotation if one of the axis is zero.
         {
-            Vector3 moveAngle = new Vector3(0, 45, +0);
-            float angle = Mathf.Atan2(x, z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
+            Vector3 moveAngle = new Vector3(0, 45, +0); // Rotate the player from its Y axis.
+            float angle = Mathf.Atan2(x, z) * Mathf.Rad2Deg; // Obtain the tangent of the angle.
+            transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0)); // Rotate the player.
         }
     }
 
